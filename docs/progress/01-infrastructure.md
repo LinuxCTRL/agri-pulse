@@ -3,9 +3,9 @@
 **Goal:** Setup the base architecture, Docker environment, and security defaults.
 
 ## Project Scaffolding
-- [x] Initialize FastAPI backend
-- [x] Initialize Next.js frontend
-- [x] Configure Docker Compose with PostgreSQL
+- [x] Initialize FastAPI backend (Local)
+- [x] Initialize Next.js frontend (Local)
+- [x] Configure Docker Compose with PostgreSQL (Docker)
 
 ## Security & Cleanup
 - [x] Remove build artifacts from git tracking
@@ -13,4 +13,4 @@
 - [x] Configure `.gitignore` and `.dockerignore`
 
 ## Networking
-- [x] Configure internal networking for SSR (INTERNAL_API_URL)
+- [x] Configure networking for local development (localhost)

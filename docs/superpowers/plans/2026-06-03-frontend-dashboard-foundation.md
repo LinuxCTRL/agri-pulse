@@ -17,9 +17,9 @@
 - Create: `frontend/components.json`
 - Create: `frontend/src/lib/utils.ts`
 
-- [x] **Step 1: Install dependencies**
+- [ ] **Step 1: Install dependencies**
 
-Run: `docker compose run --rm frontend npm install @tanstack/react-query @tanstack/react-query-devtools clsx tailwind-merge lucide-react`
+Run: `cd frontend && npm install @tanstack/react-query @tanstack/react-query-devtools clsx tailwind-merge lucide-react`
 
 - [x] **Step 2: Create shadcn/ui utility file**
 
