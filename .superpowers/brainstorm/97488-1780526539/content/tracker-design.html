@@ -1,0 +1,42 @@
+<h2>Progress Tracker Design</h2>
+<p class="subtitle">Proposed structure for <code>docs/progress/</code></p>
+
+<div class="mockup">
+  <div class="mockup-header">docs/progress/README.md (Summary)</div>
+  <div class="mockup-body">
+    <pre>
+# Project Progress Summary
+
+- [ ] [Infrastructure Setup](./01-infrastructure.md) (80% Complete)
+- [ ] [Core API Development](./02-core-api.md) (40% Complete)
+- [ ] [Frontend Dashboard](./03-frontend.md) (10% Complete)
+    </pre>
+  </div>
+</div>
+
+<div class="mockup">
+  <div class="mockup-header">docs/progress/02-core-api.md (Granular)</div>
+  <div class="mockup-body">
+    <pre>
+# Core API Development
+
+## Varieties API
+- [x] Define SQLModel models
+- [ ] Create API router
+- [ ] Implement GET /api/v1/varieties
+- [ ] Fix failing tests
+
+## Crop API
+- [ ] ...
+    </pre>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Design Highlights</h3>
+  <ul>
+    <li><strong>Hierarchical:</strong> A main <code>README.md</code> summarizes milestones, linking to detailed task files.</li>
+    <li><strong>Granular:</strong> Each milestone file breaks down into specific technical steps.</li>
+    <li><strong>Traceable:</strong> Each file follows the project's evolution, keeping things clean as we scale.</li>
+  </ul>
+</div>

@@ -1,0 +1,58 @@
+<h2>Progress Tracker Approaches</h2>
+<p class="subtitle">Choose the structure that best fits your workflow</p>
+
+<div class="options">
+  <div class="option" data-choice="markdown" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Centralized TRACKER.md</h3>
+      <p>A single, high-visibility file at the root. Uses GFM checkboxes for easy tracking and git history review.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <ul>
+            <li>Easy to read/edit</li>
+            <li>Version controlled</li>
+            <li>Zero dependencies</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="folder" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Docs Progress Folder</h3>
+      <p>Separate files for each milestone in <code>docs/progress/</code>. Great for complex, long-term projects.</p>
+      <div class="pros-cons">
+        <div class="pros">
+          <ul>
+            <li>Avoids file bloat</li>
+            <li>Granular history</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <ul>
+            <li>More navigation needed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="json" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>JSON Manifest</h3>
+      <p>Structured <code>progress.json</code>. Best if you plan to build custom scripts or dashboards.</p>
+      <div class="pros-cons">
+        <div class="cons">
+          <ul>
+            <li>Harder to read manually</li>
+            <li>Overkill for simple tasks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
