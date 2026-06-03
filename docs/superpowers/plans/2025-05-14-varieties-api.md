@@ -16,7 +16,7 @@
 - Create: `backend/tests/conftest.py`
 - Modify: `backend/tests/test_api.py`
 
-- [ ] **Step 1: Create `backend/tests/conftest.py` with database and client fixtures**
+- [x] **Step 1: Create `backend/tests/conftest.py` with database and client fixtures**
 ```python
 import pytest
 from fastapi.testclient import TestClient
@@ -46,7 +46,7 @@ def client_fixture(session: Session):
     app.dependency_overrides.clear()
 ```
 
-- [ ] **Step 2: Create `backend/tests/test_api.py` with failing test for `GET /api/v1/varieties`**
+- [x] **Step 2: Create `backend/tests/test_api.py` with failing test for `GET /api/v1/varieties`**
 ```python
 from fastapi.testclient import TestClient
 from sqlmodel import Session
@@ -76,11 +76,11 @@ def test_read_varieties(session: Session, client: TestClient):
     assert data[0]["crop_id"] == crop.id
 ```
 
-- [ ] **Step 3: Run test to verify it fails**
+- [x] **Step 3: Run test to verify it fails**
 Run: `pytest backend/tests/test_api.py -v`
 Expected: FAIL (404 Not Found)
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 ```bash
 git add backend/tests/conftest.py backend/tests/test_api.py
 git commit -m "test: add failing tests for varieties API"
@@ -94,7 +94,7 @@ git commit -m "test: add failing tests for varieties API"
 - Create: `backend/app/api/varieties.py`
 - Modify: `backend/app/main.py`
 
-- [ ] **Step 1: Create `backend/app/api/varieties.py`**
+- [x] **Step 1: Create `backend/app/api/varieties.py`**
 ```python
 from typing import List
 from fastapi import APIRouter, Depends
@@ -110,7 +110,7 @@ def read_varieties(session: Session = Depends(get_session)):
     return varieties
 ```
 
-- [ ] **Step 2: Register router in `backend/app/main.py`**
+- [x] **Step 2: Register router in `backend/app/main.py`**
 ```python
 from fastapi import FastAPI
 from app.api import varieties
@@ -124,11 +124,11 @@ async def root():
     return {"message": "Welcome to Agri-Pulse API"}
 ```
 
-- [ ] **Step 3: Run tests to verify they pass**
+- [x] **Step 3: Run tests to verify they pass**
 Run: `pytest backend/tests/test_api.py -v`
 Expected: PASS
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 ```bash
 git add backend/app/api/varieties.py backend/app/main.py
 git commit -m "feat: implement GET /api/v1/varieties endpoint"
