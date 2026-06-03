@@ -5,7 +5,7 @@ from sqlmodel.pool import StaticPool
 import sys
 import os
 
-# Add the backend directory to sys.path to allow importing 'app'
+# Ensure app is importable
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from app.main import app
