@@ -6,3 +6,6 @@ env/
 venv/
 ENV/
 .env
+agri_pulse_backend.egg-info/
+tests/
+.pytest_cache/
