@@ -12,6 +12,11 @@
 - [x] Implement `GET /api/v1/varieties`
 - [x] Fix failing tests in `backend/tests/test_api.py`
 
+## Crops API
+- [x] Implement `GET /api/v1/crops`
+- [x] Implement `GET /api/v1/crops/{id}`
+- [x] Implement `GET /api/v1/crops/{id}/varieties`
+- [x] Verify with tests
+
 ## Next Steps
-1. Implement `GET /api/v1/crops` and `GET /api/v1/crops/{id}/varieties`.
-2. Ensure tests pass locally and in CI.
+1. Ensure tests pass locally and in CI.

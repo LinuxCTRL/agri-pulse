@@ -7,7 +7,7 @@ This dashboard tracks high-level milestones and links to detailed task breakdown
 | Milestone | Status | Progress |
 | :--- | :--- | :--- |
 | [01-infrastructure.md](./01-infrastructure.md) | COMPLETED | 100% |
-| [02-core-api.md](./02-core-api.md) | IN PROGRESS | 80% |
+| [02-core-api.md](./02-core-api.md) | COMPLETED | 100% |
 | [03-frontend-dashboard.md](./03-frontend-dashboard.md) | PLANNED | 10% |
 
 ## Recent Activity
