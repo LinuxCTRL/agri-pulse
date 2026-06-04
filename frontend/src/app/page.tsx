@@ -57,25 +57,25 @@ export default function Home() {
     <div className="container mx-auto p-8 max-w-7xl animate-in fade-in slide-in-from-bottom-4 duration-700">
       <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 mb-2">
+          <h1 className="text-4xl font-black tracking-tight text-slate-950 mb-2">
             Pulse <span className="text-primary">Overview</span>
           </h1>
-          <p className="text-slate-500 text-lg max-w-2xl">
+          <p className="text-slate-600 text-lg max-w-2xl font-medium leading-relaxed">
             Welcome back. Your agricultural ecosystem is currently thriving with 
-            <span className="font-bold text-slate-900"> {varieties?.length.toLocaleString() ?? "..."} </span> 
+            <span className="font-black text-slate-900 underline decoration-primary/30 decoration-4 underline-offset-4"> {varieties?.length.toLocaleString() ?? "..."} </span> 
             cataloged varieties.
           </p>
         </div>
         <div className="flex gap-3">
           <Button 
-            className="rounded-full px-6 shadow-xl shadow-primary/20 bg-primary hover:scale-105 transition-transform"
+            className="rounded-full px-8 h-12 shadow-xl shadow-primary/30 bg-primary hover:scale-105 transition-all text-white font-black"
             onClick={() => router.push("/varieties")}
           >
             Explore Catalog
           </Button>
           <Button 
             variant="outline" 
-            className="rounded-full px-6 bg-white/50 backdrop-blur-sm hover:bg-white"
+            className="rounded-full px-8 h-12 bg-white shadow-sm hover:bg-slate-50 border-slate-200 text-slate-900 font-bold transition-all"
             onClick={() => router.push("/garden")}
           >
             My Garden
@@ -87,83 +87,86 @@ export default function Home() {
         {stats.map((stat) => (
           <Card 
             key={stat.label} 
-            className="card-hover border-none shadow-sm bg-white cursor-pointer group relative overflow-hidden"
+            className="card-hover border border-slate-100 shadow-sm bg-white cursor-pointer group relative overflow-hidden"
             onClick={() => router.push(stat.link)}
           >
-            <div className={`absolute top-0 left-0 w-1 h-full ${stat.color}`} />
+            <div className={`absolute top-0 left-0 w-1.5 h-full ${stat.color}`} />
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-400">
+              <CardTitle className="text-[10px] font-black uppercase tracking-widest text-slate-400">
                 {stat.label}
               </CardTitle>
-              <div className={`p-2 rounded-lg ${stat.color} bg-opacity-10`}>
+              <div className={`p-2 rounded-xl ${stat.color} bg-opacity-10`}>
                 <stat.icon className={`h-4 w-4 ${stat.color.replace('bg-', 'text-')}`} />
               </div>
             </CardHeader>
             <CardContent>
               <div className="flex items-baseline gap-2">
-                <div className="text-3xl font-black text-slate-900">
+                <div className="text-3xl font-black text-slate-900 tracking-tight">
                   {stat.loading ? (
                     <span className="animate-pulse">...</span>
                   ) : (
                     stat.value
                   )}
                 </div>
-                <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-primary transition-colors" />
+                <ArrowUpRight className="h-4 w-4 text-slate-300 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
               </div>
-              <p className="text-xs font-medium text-slate-500 mt-1">{stat.description}</p>
+              <p className="text-xs font-bold text-slate-500 mt-1">{stat.description}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
-        <Card className="lg:col-span-2 border-none shadow-sm overflow-hidden bg-white/50 backdrop-blur-sm">
-           <CardHeader className="border-b bg-white/30 px-6 py-4">
-              <CardTitle className="text-lg font-bold flex items-center gap-2">
-                <Activity className="h-5 w-5 text-primary" />
-                Ecosystem Health
+        <Card className="lg:col-span-2 border border-slate-100 shadow-sm overflow-hidden bg-white/70 backdrop-blur-md">
+           <CardHeader className="border-b border-slate-100 bg-slate-50/50 px-8 py-5">
+              <CardTitle className="text-lg font-black flex items-center gap-3 text-slate-900">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Activity className="h-5 w-5 text-primary" />
+                </div>
+                Ecosystem Performance
               </CardTitle>
            </CardHeader>
-           <CardContent className="p-8">
-              <div className="h-64 flex flex-col items-center justify-center text-center space-y-4">
-                 <div className="bg-primary/5 p-6 rounded-full">
-                    <Sprout className="h-12 w-12 text-primary/40" />
+           <CardContent className="p-10">
+              <div className="h-64 flex flex-col items-center justify-center text-center space-y-6">
+                 <div className="bg-emerald-50 p-8 rounded-[2.5rem] shadow-inner border border-emerald-100/50">
+                    <Sprout className="h-16 w-16 text-primary/40" />
                  </div>
-                 <div>
-                    <h3 className="text-xl font-bold text-slate-900">Your Data is Ready</h3>
-                    <p className="text-slate-500 max-w-xs mx-auto">
-                       All 3,547 varieties are synced and available for analysis. Start planting to see real-time growth tracking.
+                 <div className="space-y-2">
+                    <h3 className="text-2xl font-black text-slate-950 tracking-tight leading-none italic">Intelligence Feed Active</h3>
+                    <p className="text-slate-500 max-w-sm mx-auto font-medium text-lg leading-relaxed">
+                       Your biological datasets are fully synchronized. Real-time growth modeling is now available.
                     </p>
                  </div>
-                 <Button variant="link" className="text-primary font-bold">
-                    Learn about growth cycles
+                 <Button variant="link" className="text-primary font-black hover:no-underline text-lg">
+                    Access Insights <ArrowUpRight className="ml-1 h-5 w-5" />
                  </Button>
               </div>
            </CardContent>
         </Card>
 
-        <Card className="border-none shadow-sm bg-gradient-to-br from-primary to-emerald-600 text-white">
-           <CardHeader>
-              <CardTitle className="text-xl font-black">Pulse Pro Tips</CardTitle>
+        <Card className="border-none shadow-xl bg-gradient-to-br from-slate-900 to-primary text-white overflow-hidden relative">
+           <div className="absolute -right-10 -bottom-10 h-40 w-40 bg-white/5 rounded-full blur-3xl" />
+           <CardHeader className="p-8 pb-4">
+              <CardTitle className="text-2xl font-black tracking-tight">Pulse Pro Tips</CardTitle>
            </CardHeader>
-           <CardContent className="space-y-6">
-              <div className="space-y-2">
-                 <p className="text-emerald-100 text-sm font-medium uppercase tracking-widest">Season Focus</p>
-                 <h4 className="text-lg font-bold leading-tight">Best time to plant Heirloom Tomatoes</h4>
-                 <p className="text-emerald-50/80 text-sm">
-                    Most varieties we cataloged require 70-80 days. Start them now for a late summer harvest.
+           <CardContent className="p-8 pt-0 space-y-8">
+              <div className="space-y-3">
+                 <p className="text-emerald-300 text-[10px] font-black uppercase tracking-[0.2em]">Season Focus</p>
+                 <h4 className="text-xl font-bold leading-tight">Heirloom Tomato Cycles</h4>
+                 <p className="text-slate-300 font-medium leading-relaxed">
+                    Most varieties in the catalog require 70-80 days. Start them now for late summer harvest.
                  </p>
               </div>
-              <div className="h-px bg-white/20 w-full" />
-              <div className="space-y-2">
-                 <p className="text-emerald-100 text-sm font-medium uppercase tracking-widest">Latest Data</p>
-                 <h4 className="text-lg font-bold leading-tight">833 Grape varieties added</h4>
-                 <p className="text-emerald-50/80 text-sm">
-                    Our latest expansion includes detailed wine and table grape data from regions globally.
+              <div className="h-px bg-white/10 w-full" />
+              <div className="space-y-3">
+                 <p className="text-emerald-300 text-[10px] font-black uppercase tracking-[0.2em]">Recent Trends</p>
+                 <h4 className="text-xl font-bold leading-tight">833 New Grapes</h4>
+                 <p className="text-slate-300 font-medium leading-relaxed">
+                    Latest data includes detailed species origin and production hectares for wine cultivars.
                  </p>
               </div>
-              <Button className="w-full bg-white text-primary hover:bg-emerald-50 font-bold">
-                 View Expansion Notes
+              <Button className="w-full h-14 bg-white text-slate-900 hover:bg-emerald-50 font-black rounded-2xl shadow-lg shadow-black/20">
+                 Expansion Journal
               </Button>
            </CardContent>
         </Card>
