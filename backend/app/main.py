@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
 from app.api import varieties, crops, plantings, activities
 from app.database import create_db_and_tables
 
@@ -8,6 +10,13 @@ app = FastAPI(title="Agri-Pulse API")
 @app.on_event("startup")
 def on_startup():
     create_db_and_tables()
+
+# Ensure uploads directory exists
+UPLOAD_DIR = "data/uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+# Mount static files for uploads
+app.mount("/uploads", StaticFiles(directory=UPLOAD_DIR), name="uploads")
 
 # Configure CORS
 app.add_middleware(

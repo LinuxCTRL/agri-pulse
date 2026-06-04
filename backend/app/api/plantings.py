@@ -1,10 +1,44 @@
+import os
+import uuid
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlmodel import Session, select
 from app.database import get_session
-from app.models import Planting, PlantingBase
+from app.models import Planting, PlantingBase, PlantingImage
 
 router = APIRouter()
+
+UPLOAD_DIR = "data/uploads"
+
+@router.post("/{id}/upload", response_model=PlantingImage)
+async def upload_planting_image(
+    id: int, 
+    file: UploadFile = File(...), 
+    session: Session = Depends(get_session)
+):
+    planting = session.get(Planting, id)
+    if not planting:
+        raise HTTPException(status_code=404, detail="Planting not found")
+    
+    # Generate unique filename
+    file_ext = os.path.splitext(file.filename)[1]
+    filename = f"{uuid.uuid4()}{file_ext}"
+    file_path = os.path.join(UPLOAD_DIR, filename)
+    
+    # Save file
+    with open(file_path, "wb") as buffer:
+        content = await file.read()
+        buffer.write(content)
+    
+    # Create DB record
+    # Since we mount UPLOAD_DIR to /uploads, the URL is /uploads/filename
+    image_url = f"http://localhost:8000/uploads/{filename}"
+    db_image = PlantingImage(planting_id=id, image_url=image_url)
+    session.add(db_image)
+    session.commit()
+    session.refresh(db_image)
+    
+    return db_image
 
 @router.get("/", response_model=List[Planting])
 def read_plantings(session: Session = Depends(get_session)):

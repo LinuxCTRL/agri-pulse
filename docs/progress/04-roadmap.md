@@ -9,7 +9,7 @@
 ## ✅ Phase 5: Visual Intelligence (Image Support)
 - [x] **Image Scraper:** Updated all major scrapers.
 - [x] **Gallery View:** Thumbnails in list and large images in detail pages.
-- [ ] **Image Upload:** Allow users to upload photos of their own plants.
+- [x] **Image Upload:** Users can upload real photos of their own plants to their journals.
 
 ## ✅ Phase 6: Dataset Expansion - COMPLETE
 - [x] **Apples:** Scraped 1,700+ varieties.
@@ -26,8 +26,11 @@
 - [x] **Activity API:** Endpoints for logging events.
 - [x] **Journal UI:** Beautiful vertical timeline and activity logger.
 
+## ✅ Phase 8: Performance & Layout
+- [x] **Client-side Pagination:** Handle 3,500+ items smoothly.
+- [x] **Grid vs Table View:** Switchable layouts for the catalog.
+
 ## 🚀 Future Ideas
-- [ ] **Performance Optimization:** Add Pagination to the Varieties list (3,500+ items).
 - [ ] **AI Chatbot:** Integrate an LLM for growing advice.
 - [ ] **Weather Integration:** Local weather and frost alerts.
-- [ ] **Image Uploads:** Actual photos of user plants in journals.
+- [ ] **Advanced Filtering:** filter by region or soil type.
